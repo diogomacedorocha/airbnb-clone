@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
+  devise_for :users
+
+  # Custom user routes
+  resources :users, only: [:show] do
+    member do
+      get :dashboard
+    end
+  end
+
+  # Homepage
   root to: "pages#home"
 
-  resources :flats, only: [:index, :new, :create]
-
-  get "up" => "rails/health#show", as: :rails_health_check
-
-  # root "posts#index"
 end
