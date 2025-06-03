@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   end
 
   # Homepage
-  root to: "pages#home"
+  root to: "flats#index"
 
 end
