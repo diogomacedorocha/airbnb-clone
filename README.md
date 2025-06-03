@@ -1,1 +1,62 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+<!-- app/
+├── controllers/
+│   ├── application_controller.rb
+│   ├── users_controller.rb
+│   ├── pages_controller.rb
+│   └── flats_controller.rb
+│
+├── models/
+│   ├── user.rb
+│   └── flat.rb
+│
+├── views/
+│   ├── layouts/
+│   │   ├── application.html.erb
+│   │   ├── mailer.html.erb
+│   │   └── mailer.text.erb
+│   │
+│   ├── pages/
+│   │   └── home.html.erb
+│   │
+│   ├── users/
+│   │   ├── dashboard.html.erb
+│   │   └── show.html.erb
+│   │
+│   └── flats/
+│       ├── index.html.erb
+│       ├── show.html.erb
+│       ├── new.html.erb
+│       ├── edit.html.erb
+│       └── _form.html.erb    -->
+
+
+app/
+├── controllers/
+│   ├── application_controller.rb
+│   ├── users_controller.rb
+│   ├── pages_controller.rb
+│   └── flats_controller.rb
+│
+├── models/
+│   ├── user.rb
+│   └── flat.rb
+│
+├── views/
+│   ├── layouts/
+│   │   ├── application.html.erb
+│   │   ├── mailer.html.erb
+│   │   └── mailer.text.erb
+│   │
+│   ├── pages/
+│   │   └── home.html.erb
+│   │
+│   ├── users/
+│   │   ├── dashboard.html.erb
+│   │   └── show.html.erb
+│   │
+│   └── flats/
+│       ├── index.html.erb
+│       ├── show.html.erb
+│       ├── new.html.erb
+│       ├── edit.html.erb
+│       └── _form.html.erb

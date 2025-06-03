@@ -1,2 +1,14 @@
-<h1>Users#dashboard</h1>
-<p>Find me in app/views/users/dashboard.html.erb</p>
+<h1>Welcome, <%= current_user.email %>!</h1>
+
+<p>Your role: <strong><%= current_user.role&.capitalize || "Not set" %></strong></p>
+
+<ul>
+  <li><%= link_to "View your profile", user_path(current_user) %></li>
+  <li><%= link_to "Edit your account", edit_user_registration_path %></li>
+  <% if current_user.role == "host" || current_user.role == "both" %>
+    <li><%= link_to "Your flats", flats_path %></li>
+  <% end %>
+  <% if current_user.role == "guest" || current_user.role == "both" %>
+    <li><%= link_to "Your bookings", bookings_path %></li>
+  <% end %>
+</ul>

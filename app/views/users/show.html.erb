@@ -1,2 +1,9 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1><%= @user.email %>'s Profile</h1>
+
+<p><strong>Joined:</strong> <%= @user.created_at.strftime("%B %Y") %></p>
+
+<p><strong>Role:</strong> <%= @user.role&.capitalize || "Not set" %></p>
+
+<% if @user == current_user %>
+  <%= link_to "Edit your profile", edit_user_registration_path %>
+<% end %>
