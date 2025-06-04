@@ -1,18 +1,19 @@
+<div class="full-bg-overlay">
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="login-signup-box">
+          <h2 class="login-signup-title">Log in to your account</h2>
 
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <div class="login-signup-box">
-        <h2 class="login-signup-title">Log in to your account</h2>
+          <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "login-signup-form" }) do |f| %>
+            <%= f.input :email, autofocus: true, required: true %>
+            <%= f.input :password, required: true %>
+            <%= f.button :submit, "Log in", class: "btn btn-primary mt-3" %>
+          <% end %>
 
-        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "login-signup-form" }) do |f| %>
-          <%= f.input :email, autofocus: true, required: true %>
-          <%= f.input :password, required: true %>
-          <%= f.button :submit, "Log in", class: "btn btn-primary mt-3" %>
-        <% end %>
-
-        <div class="login-signup-links">
-          <%= render "devise/shared/links" %>
+          <div class="login-signup-links">
+            <%= render "devise/shared/links" %>
+          </div>
         </div>
       </div>
     </div>
