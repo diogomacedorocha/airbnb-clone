@@ -1,9 +1,24 @@
 <h1>Homepage</h1>
-<div>
-    <% @flats.each do |flat| %>
-      <p><%= flat.title %></p>
-      <p><%= flat.description %></p>
-      <p><%= flat.location %></p>
-      <p><%= flat.price_per_night %></p>
-    <% end %>
+
+<div class="row">
+  <% @flats.each do |flat| %>
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title"><%= flat.title %></h5>
+          <p class="card-text"><%= flat.description %></p>
+          <p class="card-text"><strong>Location:</strong> <%= flat.location %></p>
+          <p class="card-text"><strong>Price per night:</strong> €<%= flat.price_per_night %></p>
+
+          <%= link_to "View Flat", flat_path(flat), class: "btn btn-sm btn-secondary me-2" %>
+
+          <% if user_signed_in? && current_user.role.in?(%w[guest both]) %>
+            <%= link_to "Book Now", new_booking_path(flat_id: flat.id), class: "btn btn-sm btn-outline-primary" %>
+          <% else %>
+            <%= link_to "Sign in to Book", new_user_session_path, class: "btn btn-sm btn-outline-secondary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
