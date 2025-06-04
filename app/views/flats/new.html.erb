@@ -1,12 +1,11 @@
-<div>
-  <h2>New Flat</h2>
-  <%= simple_form_for(@flat) do |f| %>
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :location %>
-    <%= f.input :price_per_night %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.submit class: "btn btn-gradient" %>
-    <%= link_to "Back to flats", flats_path, class: "btn btn-gradient" %>
-  <% end %>
-</div>
+<h1>New Booking</h1>
+
+<%= simple_form_for @booking do |f| %>
+  <%= f.input :flat_id, as: :hidden, input_html: { value: @flat.id } %>
+
+
+  <%= f.input :start_date, as: :date, label: "Start Date" %>
+  <%= f.input :end_date, as: :date, label: "End Date" %>
+
+  <%= f.button :submit, "Request Booking", class: "btn btn-primary" %>
+<% end %>

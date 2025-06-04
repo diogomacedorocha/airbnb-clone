@@ -1,5 +1,4 @@
-<div class="container-fluid p-0">
-  <% if @flat.photos.attached? %>
+
     <div class="position-relative" style="max-height: 60vh; overflow: hidden;">
       <%= image_tag @flat.photos.first, class: "w-100", style: "object-fit: cover; height: 60vh;" %>
       <div class="position-absolute bottom-0 start-0 bg-dark bg-opacity-50 text-white p-4 w-100">
@@ -34,4 +33,23 @@
       </div>
     </div>
   </div>
+
+    <% @flat.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
+  <% end %>
+
+  <h2><%= @flat.title %></h2>
+  <h3><%= @flat.location %></h3>
+  <h4>Flat description</h4>
+  <p><%= @flat.description %></p>
+  <p>Price per night: <%= @flat.price_per_night %>€</p>
+</div>
+
+<div>
+  <% if user_signed_in? && current_user.role.in?(%w[guest both]) %>
+    <%= link_to "Book it!", new_booking_path(flat_id: @flat.id), class: "btn btn-outline-primary" %>
+  <% else %>
+    <%= link_to "Sign in to book", new_user_session_path, class: "btn btn-outline-secondary" %>
+  <% end %>
 </div>
