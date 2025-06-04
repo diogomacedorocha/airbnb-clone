@@ -1,0 +1,19 @@
+<h1>Edit Booking</h1>
+
+<%= simple_form_for @booking do |f| %>
+  <div class="mb-3">
+    <%= f.input :start_date, as: :date, label: "Start Date" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.input :end_date, as: :date, label: "End Date" %>
+  </div>
+
+  <% if current_user == @booking.flat.user %>
+    <div class="mb-3">
+      <%= f.input :status, collection: %w[pending accepted declined], prompt: "Select status", label: "Booking Status" %>
+    </div>
+  <% end %>
+
+  <%= f.button :submit, "Update Booking", class: "btn btn-success" %>
+<% end %>
