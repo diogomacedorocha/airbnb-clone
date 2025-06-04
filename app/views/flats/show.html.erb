@@ -1,4 +1,9 @@
 <div>
+  <% if @flat.photos.attached? %>
+    <% @flat.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
+  <% end %>  
   <h2><%= @flat.title %></h2>
   <h3><%= @flat.location %></h3>
   <h4>Flat desciption</h4>

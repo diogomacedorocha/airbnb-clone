@@ -15,7 +15,7 @@ class FlatsController < ApplicationController
     @flat = Flat.new(flat_params)
     @flat.user = current_user # Assuming Devise is used
     if @flat.save
-      redirect_to flats_path, notice: "Flat created successfully."
+      redirect_to flat_path(@flat), notice: "Flat created successfully."
     else
       render :new, status: :unprocessable_entity
     end
@@ -24,6 +24,6 @@ class FlatsController < ApplicationController
   private
 
   def flat_params
-    params.require(:flat).permit(:title, :description, :location, :price_per_night)
+    params.require(:flat).permit(:title, :description, :location, :price_per_night, photos: [])
   end
 end
