@@ -1,15 +1,37 @@
-<div>
+<div class="container-fluid p-0">
   <% if @flat.photos.attached? %>
-    <% @flat.photos.each do |photo| %>
-      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-    <% end %>
-  <% end %>  
-  <h2><%= @flat.title %></h2>
-  <h3><%= @flat.location %></h3>
-  <h4>Flat desciption</h4>
-  <p><%= @flat.description %></p>
-  <p>Price per night: <%= @flat.price_per_night %>€</p>
-</div>
-<div>
-  <button class="btn btn-outline-primary">Book it!</button>
+    <div class="position-relative" style="max-height: 60vh; overflow: hidden;">
+      <%= image_tag @flat.photos.first, class: "w-100", style: "object-fit: cover; height: 60vh;" %>
+      <div class="position-absolute bottom-0 start-0 bg-dark bg-opacity-50 text-white p-4 w-100">
+        <h1 class="fw-bold"><%= @flat.title %></h1>
+        <p class="mb-0"><i class="bi bi-geo-alt-fill"></i> <%= @flat.location %></p>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="container">
+    <div class="row justify-content-center mt-5">
+      <div class="col-md-10 col-lg-8">
+        <div class="card border-0 shadow rounded-4 p-5 mb-5">
+          <p class="text-muted mb-4 fs-5"><%= @flat.description %></p>
+          <hr>
+          <div class="d-flex justify-content-between align-items-center mt-4">
+            <h3 class="mb-0 fw-semibold">💶 <%= @flat.price_per_night %>€ <span class="fs-6 text-muted">/ night</span></h3>
+            <%= button_to "Book now", "#", class: "btn btn-primary btn-lg px-4 rounded-pill shadow-sm" %>
+          </div>
+        </div>
+
+        <% if @flat.photos.length > 1 %>
+          <h4 class="mb-3">Gallery</h4>
+          <div class="row row-cols-2 row-cols-md-3 g-3 mb-5">
+            <% @flat.photos.drop(1).each do |photo| %>
+              <div class="col">
+                <%= image_tag photo, class: "img-fluid rounded-3", style: "object-fit: cover; aspect-ratio: 4/3;" %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
