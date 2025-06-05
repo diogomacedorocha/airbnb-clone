@@ -9,6 +9,12 @@ class FlatsController < ApplicationController
     end
   end
 
+  def properties
+    @flats = current_user.flats
+    render :index  # this reuses the index view for simplicity
+  end
+
+
   def show
     @flat = Flat.find(params[:id])
     @markers = [{
@@ -26,7 +32,7 @@ class FlatsController < ApplicationController
     @flat = Flat.new(flat_params)
     @flat.user = current_user # Assuming Devise is used
     if @flat.save
-      redirect_to flat_path(@flat), notice: "Flat created successfully."
+      redirect_to properties_path, notice: "Flat created successfully."
     else
       render :new, status: :unprocessable_entity
     end

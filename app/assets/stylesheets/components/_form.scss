@@ -1,0 +1,32 @@
+.form-container {
+  margin: 5%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  padding: 20px;
+}
+
+.form-button {
+  background-color: $airbnb-orange;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+  transition-duration: 0.4s;
+}
+
+.form-button:hover {
+  background-color: #af3034;
+  color: white;
+}
+
+.second-button {
+  background-color: $airbnb-green;
+  transition-duration: 0.4s;
+}
+
+.second-button:hover {
+  background-color: #0d7e74;
+}

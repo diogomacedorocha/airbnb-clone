@@ -11,4 +11,7 @@
   <% if current_user.role == "guest" || current_user.role == "both" %>
     <li><%= link_to "Your bookings", bookings_path %></li>
   <% end %>
+  <% if current_user.role == "host" || current_user.role == "both" %>
+  <li><%= link_to "Booking Requests", booking_requests_path %></li>
+<% end %>
 </ul>

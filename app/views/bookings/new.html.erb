@@ -1,15 +1,17 @@
-<h1>New Booking</h1>
+<div class="form-container">
+  <h1>New Booking</h1>
 
-<%= simple_form_for @booking, url: bookings_path do |f| %>
-  <%= f.input :flat_id, as: :hidden, input_html: { value: @flat.id } %> <!-- ✅ flat_id now inside booking -->
+  <%= simple_form_for @booking, url: bookings_path do |f| %>
+    <%= f.input :flat_id, as: :hidden, input_html: { value: @flat.id } %> <!-- ✅ flat_id now inside booking -->
 
-  <div class="mb-3">
-    <%= f.input :start_date, as: :date, label: "Start Date" %>
-  </div>
+    <div class="mb-3">
+      <%= f.input :start_date, as: :date, label: "Start Date" %>
+    </div>
 
-  <div class="mb-3">
-    <%= f.input :end_date, as: :date, label: "End Date" %>
-  </div>
+    <div class="mb-3">
+      <%= f.input :end_date, as: :date, label: "End Date" %>
+    </div>
 
-  <%= f.button :submit, "Request Booking", class: "btn btn-primary" %>
-<% end %>
+    <%= f.button :submit, "Request Booking", class: "form-button" %>
+  <% end %>
+</div>

@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "https://static-00.iconduck.com/assets.00/airbnb-icon-2048x2048-kuw3ebuv.png" %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,12 +15,24 @@
             <%= link_to "Home", flats_path, class: "nav-link" %>
           </li>
 
-          <li class="nav-item dropdown">
+          <li class="nav-item">
+            <%= link_to "My bookings", bookings_path, class: "nav-link" %>
+          </li>
+
+          <% if ["host", "both"].include?(current_user.role) %>
+            <li class="nav-item">
+              <%= link_to "Properties", properties_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Enquiries", booking_requests_path, class: "nav-link" %>
+            </li>
+          <% end %>
+
+          <li class="nav-item dropdown ms-auto">
             <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= image_tag "https://yt3.googleusercontent.com/qGrcViAdsmfdL8NhR03s6jZVi2AP4A03XeBFShu2M4Jd88k1fNXDnpMEmHU6CvNJuMyA2z1maA0=s900-c-k-c0x00ffffff-no-rj", class: "avatar", alt: "dropdown menu" %>
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "My bookings", bookings_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
             </div>
           </li>

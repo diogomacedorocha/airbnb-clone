@@ -5,7 +5,7 @@
 }
 
 .btn-add-flat {
-  background-color: #FF385C;
+  background-color: $airbnb-orange;
   color: white !important;
   font-weight: 600;
   border-radius: 8px;
@@ -18,7 +18,7 @@
   display: inline-block;
 
   &:hover {
-    background-color: #e03150;
+    background-color: rgb(199, 40, 69);
     color: white !important;
     text-decoration: none;
   }

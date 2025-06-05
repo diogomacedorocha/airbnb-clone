@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = current_user.bookings
+    .order(Arel.sql("CASE status WHEN 'pending' THEN 0 WHEN 'accepted' THEN 1 WHEN 'declined' THEN 2 ELSE 3 END"))
   end
 
   def new
@@ -29,18 +30,33 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
-    if @booking.user == current_user && @booking.update(booking_params)
-      redirect_to bookings_path, notice: "Booking updated!"
+
+    if (@booking.user == current_user || @booking.flat.user == current_user) && @booking.update(booking_params)
+      redirect_back fallback_location: bookings_path, notice: "Booking updated!"
     else
-      render :edit, status: :unprocessable_entity
+      redirect_back fallback_location: bookings_path, alert: "Booking update failed."
     end
+  end
+
+  def requests
+    @bookings = Booking
+      .joins(:flat)
+      .where(flats: { user_id: current_user.id })
+      .order(Arel.sql("CASE bookings.status WHEN 'pending' THEN 0 WHEN 'accepted' THEN 1 WHEN 'declined' THEN 2 ELSE 3 END"))
   end
 
   private
 
   def booking_params
     permitted = [:flat_id, :start_date, :end_date]
-    permitted << :status if current_user == @booking&.flat&.user
+
+    if params[:booking][:status].present?
+      booking = Booking.find_by(id: params[:id]) || Booking.new(flat_id: params[:booking][:flat_id])
+      if booking.flat && booking.flat.user == current_user
+        permitted << :status
+      end
+    end
+
     params.require(:booking).permit(permitted)
   end
 
