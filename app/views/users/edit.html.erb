@@ -1,0 +1,20 @@
+<div class="container my-5">
+  <h2>Edit Profile</h2>
+
+  <%= simple_form_for @user, html: { multipart: true } do |f| %>
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%= f.input :email %>
+        <%= f.input :phone_number %>
+      </div>
+      <div class="col-md-6">
+        <%= f.input :birthdate, as: :date %>
+        <%= f.input :role, collection: %w[guest host both], prompt: "Select role" %>
+        <%= f.input :avatar, as: :file, label: "Upload profile photo" %>
+      </div>
+    </div>
+    <%= f.submit "Save changes", class: "btn btn-primary mt-3" %>
+  <% end %>
+</div>
