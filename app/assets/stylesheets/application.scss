@@ -12,3 +12,48 @@
 @import "pages/index";
 @import "components/login_signup_box";
 @import url("https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css");
+
+.btn-airbnb {
+  background-color: #FF385C; /* Airbnb red */
+  color: white;
+  border: none;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.875rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  width: auto;
+  min-width: 100px;
+}
+
+.btn-airbnb:hover {
+  background-color: #e03250;
+  color: white;
+  text-decoration: none;
+}
+
+.flat-card {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 8px;
+  background-color: #f4f4f4;
+}
+
+.card-img-top {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  height: 250px;
+  object-fit: cover;
+}
+.flats-container {
+  background-color: #ffffff;  /* a tad bit greyer */
+  padding: 2rem;
+  border-radius: 8px;
+}
+.flat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease-in-out;
+}

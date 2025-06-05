@@ -1,0 +1,20 @@
+.flat-card .card-img-top {
+  height: 180px; /* smaller height */
+  object-fit: cover;
+}
+.flats-container {
+  background-color: #f8f9fa; /* a very light gray */
+  padding: 2rem 1rem; /* add some padding around the content */
+  min-height: 100vh; /* optional: make sure background covers full height */
+}
+
+.flat-card {
+  background-color: #f7f7f7; // light grey background
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); // subtle shadow
+  border: none;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+}
