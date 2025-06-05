@@ -1,49 +1,51 @@
-<h1 class="mb-4">Booking Requests for Your Flats</h1>
+<div class="flats-container">
+  <h1 class="mb-4">Booking Requests for Your Flats</h1>
 
-<% if @bookings.any? %>
-  <% @bookings.each do |booking| %>
-    <div class="card mb-3 shadow-sm">
-      <div class="card-body">
-        <h5 class="card-title">
-          <%= link_to booking.flat.title, flat_path(booking.flat), class: "text-decoration-none" %>
-        </h5>
+  <% if @bookings.any? %>
+    <% @bookings.each do |booking| %>
+      <div class="card mb-3 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">
+            <%= link_to booking.flat.title, flat_path(booking.flat), class: "text-decoration-none" %>
+          </h5>
 
-        <p class="card-text mb-1">
-          <strong>Guest:</strong> <%= booking.user.email %>
-        </p>
+          <p class="card-text mb-1">
+            <strong>Guest:</strong> <%= booking.user.email %>
+          </p>
 
-        <p class="card-text mb-1">
-          <strong>Dates:</strong>
-          <%= booking.start_date.strftime("%b %d, %Y") %> &rarr;
-          <%= booking.end_date.strftime("%b %d, %Y") %>
-        </p>
+          <p class="card-text mb-1">
+            <strong>Dates:</strong>
+            <%= booking.start_date.strftime("%b %d, %Y") %> &rarr;
+            <%= booking.end_date.strftime("%b %d, %Y") %>
+          </p>
 
-        <p class="card-text mb-3">
-          <strong>Status:</strong>
-          <span class="badge
-            <%= case booking.status
-                when 'pending' then 'bg-warning text-dark'
-                when 'accepted' then 'bg-success'
-                when 'declined' then 'bg-danger'
-                else 'bg-secondary' end %>">
-            <%= booking.status.capitalize %>
-          </span>
-        </p>
+          <p class="card-text mb-3">
+            <strong>Status:</strong>
+            <span class="badge
+              <%= case booking.status
+                  when 'pending' then 'bg-warning text-dark'
+                  when 'accepted' then 'bg-success'
+                  when 'declined' then 'bg-danger'
+                  else 'bg-secondary' end %>">
+              <%= booking.status.capitalize %>
+            </span>
+          </p>
 
-        <% if booking.status == "pending" %>
-          <div class="d-flex">
-            <%= button_to "Accept", booking_path(booking), method: :patch,
-                  params: { booking: { status: "accepted" } },
-                  class: "btn btn-success btn-sm" %>
+          <% if booking.status == "pending" %>
+            <div class="d-flex">
+              <%= button_to "Accept", booking_path(booking), method: :patch,
+                    params: { booking: { status: "accepted" } },
+                    class: "request-button accept" %>
 
-            <%= button_to "Decline", booking_path(booking), method: :patch,
-                  params: { booking: { status: "declined" } },
-                  class: "btn btn-danger btn-sm ms-2" %>
-          </div>
-        <% end %>
+              <%= button_to "Decline", booking_path(booking), method: :patch,
+                    params: { booking: { status: "declined" } },
+                    class: "request-button decline" %>
+            </div>
+          <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
+  <% else %>
+    <p>No booking requests yet. Keep calm and host on! 🛏️</p>
   <% end %>
-<% else %>
-  <p>No booking requests yet. Keep calm and host on! 🛏️</p>
-<% end %>
+</div>

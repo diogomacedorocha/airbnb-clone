@@ -1,0 +1,27 @@
+.request-button {
+  border: none;
+  color: white;
+  padding: 10px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  border-radius: 2px;
+  transition-duration: 0.4s;
+  width: 100px;
+  margin-right: 15px;
+}
+
+.accept {
+  background-color: $airbnb-green;
+  &:hover {
+    background-color: #0d7e74;
+  }
+}
+
+.decline {
+  background-color: $airbnb-light-orange;
+  &:hover {
+    background-color: #a3350d;
+  }
+}
