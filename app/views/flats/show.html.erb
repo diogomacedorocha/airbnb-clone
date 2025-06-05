@@ -11,39 +11,44 @@
       </div>
     </div>
 
-
-<div
-  data-controller="map"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-  data-map-markers-value="<%= raw @markers.to_json %>"
-  style="height: 400px;"
-></div>
-
-
   <div class="container">
-    <div class="row justify-content-center mt-5">
-      <div class="col-md-10 col-lg-8">
-        <div class="card border-0 shadow rounded-4 p-5 mb-5">
+    <div class="row d-flex align-items-stretch">
+    
+      <div class="col-md-6 d-flex">
+        <div class="card border-0 shadow rounded-4 p-5 mt-5 flex-grow-1">
           <p class="text-muted mb-4 fs-5"><%= @flat.description %></p>
           <hr>
           <div class="d-flex justify-content-between align-items-center mt-4">
             <h3 class="mb-0 fw-semibold">💶 <%= @flat.price_per_night %>€ <span class="fs-6 text-muted">/ night</span></h3>
-          <div>
-             <% if user_signed_in? && current_user.role.in?(%w[guest both]) %>
-             <%= link_to "Book it!", new_booking_path(flat_id: @flat.id), class: "form-button" %>
-             <% else %>
-             <%= link_to "Sign in to book", new_user_session_path, class: "form-button" %>
-             <% end %>
-          </div>
+            <div>
+              <% if user_signed_in? && current_user.role.in?(%w[guest both]) %>
+                <%= link_to "Book it!", new_booking_path(flat_id: @flat.id), class: "form-button" %>
+              <% else %>
+                <%= link_to "Sign in to book", new_user_session_path, class: "form-button" %>
+              <% end %>
+            </div>
           </div>
         </div>
+      </div>
+
+      <div class="col-md-6 d-flex pt-5">
+        <div data-controller="map"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+          data-map-markers-value="<%= raw @markers.to_json %>"
+          style="height: 100%;" class="shadow mb-5 flex-grow-1">
+        </div>
+      </div>
+    </div>
+  </div>
 
         <% if @flat.photos.length > 1 %>
-          <h4 class="mb-3">Gallery</h4>
+          <div class="text-center my-4">
+            <h4 class="mb-3">Gallery</h4>
+          </div>
           <div class="row row-cols-2 row-cols-md-3 g-3 mb-5">
             <% @flat.photos.drop(1).each do |photo| %>
               <div class="col">
-                <%= image_tag photo, class: "img-fluid rounded-3", style: "object-fit: cover; aspect-ratio: 4/3;" %>
+                <%= image_tag photo, class: "img-fluid rounded-3 m-3", style: "object-fit: cover; aspect-ratio: 4/3;" %>
               </div>
             <% end %>
           </div>
