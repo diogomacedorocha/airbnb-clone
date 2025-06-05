@@ -1,0 +1,48 @@
+
+.flats-container {
+  background-color: #f8f9fa; // very light gray for page background
+  padding: 2rem 1rem;
+  min-height: 100vh;
+  border-radius: 8px;
+}
+
+.flat-card {
+  background-color: #f4f4f4; // subtle grey for card
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); // deeper shadow
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4); // strong shadow on hover
+  }
+}
+
+.card-img-top {
+  height: 180px; // smaller image height
+  object-fit: cover;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.btn-airbnb {
+  background-color: #FF385C;
+  color: white;
+  border: none;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.875rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  min-width: 100px;
+  text-decoration: none;
+  width: auto;
+}
+
+.btn-airbnb:hover {
+  background-color: #e03250;
+  color: white;
+}
