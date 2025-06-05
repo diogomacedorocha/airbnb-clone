@@ -12,18 +12,20 @@
   display: inline-block;
   font-size: 16px;
   border-radius: 4px;
+  transition-duration: 0.4s;
 }
 
 .form-button:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  background-color: $airbnb-orange;
+  background-color: #af3034;
   color: white;
 }
 
 .second-button {
   background-color: $airbnb-green;
+  transition-duration: 0.4s;
 }
 
 .second-button:hover {
-  background-color: $airbnb-green;
+  background-color: #0d7e74;
 }

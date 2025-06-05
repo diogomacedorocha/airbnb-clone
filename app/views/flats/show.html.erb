@@ -1,9 +1,9 @@
 
     <div class="position-relative" style="max-height: 60vh; overflow: hidden;">
      <% if @flat.photos.attached? %>
-       <%= image_tag @flat.photos.first, class: "w-100", style: "object-fit: cover; height: 60vh;" %>
+       <%= image_tag @flat.photos.first, class: "w-100", style: "object-fit: cover; height: 40vh;" %>
       <% else %>
-      <%= image_tag "default-banner.jpg", class: "w-100", style: "object-fit: cover; height: 60vh;" %>
+      <%= image_tag "default-banner.jpg", class: "w-100", style: "object-fit: cover; height: 40vh;" %>
        <% end %>
       <div class="position-absolute bottom-0 start-0 bg-dark bg-opacity-50 text-white p-4 w-100">
         <h1 class="fw-bold"><%= @flat.title %></h1>
@@ -21,7 +21,7 @@
             <h3 class="mb-0 fw-semibold">💶 <%= @flat.price_per_night %>€ <span class="fs-6 text-muted">/ night</span></h3>
           <div>
              <% if user_signed_in? && current_user.role.in?(%w[guest both]) %>
-             <%= link_to "Book it!", new_booking_path(flat_id: @flat.id), class: "btn btn-outline-primary" %>
+             <%= link_to "Book it!", new_booking_path(flat_id: @flat.id), class: "form-button" %>
              <% else %>
              <%= link_to "Sign in to book", new_user_session_path, class: "btn btn-outline-secondary" %>
              <% end %>
