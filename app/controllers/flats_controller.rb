@@ -1,10 +1,23 @@
 class FlatsController < ApplicationController
   def index
-    @flats = Flat.all
-    @markers = @flats.geocoded.map do |flat|
+    if params[:query].present?
+      begin
+        # Primary: geocoder-based nearby search
+        @flats = Flat.near(params[:query], 20)
+      rescue
+        # Fallback if Geocoder can't parse the query
+        @flats = Flat.where("location ILIKE ?", "%#{params[:query]}%")
+      end
+    else
+      @flats = Flat.all
+    end
+
+    @markers = @flats.map do |flat|
       {
         lat: flat.latitude,
-        lng: flat.longitude
+        lng: flat.longitude,
+        info_window_html: render_to_string(partial: "flats/info_window", locals: { flat: flat }, formats: [:html]),
+        marker_html: render_to_string(partial: "flats/marker", locals: { flat: flat }, formats: [:html])
       }
     end
   end
