@@ -1,6 +1,6 @@
 <div class="container my-5 text-center">
   <% if @user.avatar.attached? %>
-    <%= image_tag @user.avatar.variant(resize_to_fill: [120, 120]), class: "rounded-circle shadow-sm" %>
+    <%= image_tag(@user.avatar, width: 150, height: 150, crop: :thumb, gravity: :face, class:"shadow-sm rounded-circle") %>
   <% else %>
     <%= image_tag "default-avatar.png", class: "rounded-circle shadow-sm", size: "120x120" %>
   <% end %>
