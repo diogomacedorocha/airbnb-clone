@@ -5,11 +5,11 @@
     <%= f.input :flat_id, as: :hidden, input_html: { value: @flat.id } %> <!-- ✅ flat_id now inside booking -->
 
     <div class="mb-3">
-      <%= f.input :start_date, as: :date, label: "Start Date" %>
+      <%= f.input :start_date, as: :string, input_html: { data: { controller: "datepicker" } } %>
     </div>
 
     <div class="mb-3">
-      <%= f.input :end_date, as: :date, label: "End Date" %>
+      <%= f.input :end_date, as: :string, input_html: { data: { controller: "datepicker" } } %>
     </div>
 
     <%= f.button :submit, "Request Booking", class: "form-button" %>
