@@ -1,30 +1,32 @@
-<div class="d-flex justify-content-between align-items-center mb-4">
-  <h1 class="page-title">Explore Flats</h1>
-  <%= link_to "+ Add New Flat", new_flat_path, class: "btn-add-flat" %>
-</div>
+<div class="flats-container">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="page-title">Explore Flats</h1>
+    <%= link_to "+ Add New Flat", new_flat_path, class: "btn-add-flat" %>
+  </div>
 
-<div class="row">
-  <% @flats.each do |flat| %>
-    <div class="col-md-4 mb-4">
-      <div class="card flat-card h-100 shadow-sm rounded">
-        <% if flat.photos.attached? %>
-          <%= image_tag flat.photos.first, class: "card-img-top img-hover-zoom" %>
-        <% else %>
-          <%= image_tag "https://source.unsplash.com/400x250/?apartment", class: "card-img-top img-hover-zoom" %>
-        <% end %>
-
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title"><%= flat.title %></h5>
-          <p class="card-text text-muted mb-2"><%= flat.location %></p>
-          <p class="card-text fw-bold mb-3">£<%= flat.price_per_night %> per night</p>
-          <%= link_to 'View Flat', flat_path(flat), class: "btn btn-primary mt-auto" %>
-          <% if user_signed_in? && current_user.role.in?(%w[guest both]) %>
-            <%= link_to "Book Now", new_booking_path(flat_id: flat.id), class: "btn btn-sm btn-outline-primary" %>
+  <div class="row">
+    <% @flats.each do |flat| %>
+      <div class="col-md-4 mb-4">
+        <div class="card flat-card h-100 shadow-sm rounded">
+          <% if flat.photos.attached? %>
+            <%= image_tag flat.photos.first, class: "card-img-top img-hover-zoom" %>
           <% else %>
-            <%= link_to "Sign in to Book", new_user_session_path, class: "btn btn-sm btn-outline-secondary" %>
+            <%= image_tag "https://source.unsplash.com/400x250/?apartment", class: "card-img-top img-hover-zoom" %>
           <% end %>
+
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title"><%= flat.title %></h5>
+            <p class="card-text text-muted mb-2"><%= flat.location %></p>
+            <p class="card-text fw-bold mb-3">£<%= flat.price_per_night %> per night</p>
+            <%= link_to 'View Flat', flat_path(flat), class: "btn btn-primary mt-auto" %>
+            <% if user_signed_in? && current_user.role.in?(%w[guest both]) %>
+              <%= link_to "Book Now", new_booking_path(flat_id: flat.id), class: "btn btn-sm btn-outline-primary" %>
+            <% else %>
+              <%= link_to "Sign in to Book", new_user_session_path, class: "btn btn-sm btn-outline-secondary" %>
+            <% end %>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
