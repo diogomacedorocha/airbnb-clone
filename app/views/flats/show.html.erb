@@ -11,6 +11,15 @@
       </div>
     </div>
 
+
+<div
+  data-controller="map"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+  data-map-markers-value="<%= raw @markers.to_json %>"
+  style="height: 400px;"
+></div>
+
+
   <div class="container">
     <div class="row justify-content-center mt-5">
       <div class="col-md-10 col-lg-8">

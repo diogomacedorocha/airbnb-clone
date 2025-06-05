@@ -4,6 +4,13 @@
     <%= link_to "+ Add New Flat", new_flat_path, class: "btn-add-flat" %>
   </div>
 
+<div
+  data-controller="map"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+  data-map-markers-value="<%= @markers.to_json %>"
+  style="height: 400px;"
+></div>
+
   <div class="row">
     <% @flats.each do |flat| %>
       <div class="col-md-4 mb-4">
