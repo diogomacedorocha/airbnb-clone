@@ -13,5 +13,5 @@
   <p><strong>Role:</strong> <%= @user.role&.capitalize || "Not assigned" %></p>
   <p><strong>Joined:</strong> <%= @user.created_at.strftime("%B %Y") %></p>
 
-  <%= link_to "Edit your profile", edit_user_path(@user), class: "btn btn-outline-primary mt-3" %>
+  <%= link_to "Edit your profile", edit_user_path(@user), class: "form-button" %>
 </div>

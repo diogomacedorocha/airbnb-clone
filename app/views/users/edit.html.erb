@@ -10,11 +10,11 @@
         <%= f.input :phone_number %>
       </div>
       <div class="col-md-6">
-        <%= f.input :birthdate, as: :date %>
+        <%= f.input :birthdate, as: :string, input_html: { data: { controller: "datepicker" } } %>
         <%= f.input :role, collection: %w[guest host both], prompt: "Select role" %>
         <%= f.input :avatar, as: :file, label: "Upload profile photo" %>
       </div>
     </div>
-    <%= f.submit "Save changes", class: "btn btn-primary mt-3" %>
+    <%= f.submit "Save changes", class: "form-button second-button" %>
   <% end %>
 </div>
