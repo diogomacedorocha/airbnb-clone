@@ -13,11 +13,12 @@ Rails.application.routes.draw do
   get "properties", to: "flats#properties", as: :properties # This makes /properties available and properties_path usable in views
 
   # Custom user routes
-  resources :users, only: [:show] do
-    member do
-      get :dashboard
-    end
+ resources :users, only: [:show, :edit, :update] do
+  member do
+    get :dashboard
   end
+end
+
 
   # Homepage
   root to: "pages#home"

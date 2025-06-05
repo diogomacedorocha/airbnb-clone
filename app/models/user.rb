@@ -11,4 +11,7 @@ class User < ApplicationRecord
   # Valid roles: "guest", "host", "both"
   # lets use 'allow_blank' since we want the feature to demo but we dont want it to cause problims
   validates :role, inclusion: { in: %w[guest host both], allow_blank: true }
+
+  # Avatar (profile picture)
+  has_one_attached :avatar
 end

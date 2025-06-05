@@ -1,9 +1,17 @@
-<h1><%= @user.email %>'s Profile</h1>
+<div class="container my-5 text-center">
+  <% if @user.avatar.attached? %>
+    <%= image_tag @user.avatar.variant(resize_to_fill: [120, 120]), class: "rounded-circle shadow-sm" %>
+  <% else %>
+    <%= image_tag "default-avatar.png", class: "rounded-circle shadow-sm", size: "120x120" %>
+  <% end %>
 
-<p><strong>Joined:</strong> <%= @user.created_at.strftime("%B %Y") %></p>
+  <h2 class="mt-3"><%= @user.first_name.presence || "User" %>’s Profile</h2>
 
-<p><strong>Role:</strong> <%= @user.role&.capitalize || "Not set" %></p>
+  <p><strong>Email:</strong> <%= @user.email %></p>
+  <p><strong>Phone:</strong> <%= @user.phone_number || "Not provided" %></p>
+  <p><strong>Birthdate:</strong> <%= @user.birthdate&.strftime("%B %d, %Y") || "Not set" %></p>
+  <p><strong>Role:</strong> <%= @user.role&.capitalize || "Not assigned" %></p>
+  <p><strong>Joined:</strong> <%= @user.created_at.strftime("%B %Y") %></p>
 
-<% if @user == current_user %>
-  <%= link_to "Edit your profile", edit_user_registration_path %>
-<% end %>
+  <%= link_to "Edit your profile", edit_user_path(@user), class: "btn btn-outline-primary mt-3" %>
+</div>
