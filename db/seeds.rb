@@ -23,70 +23,59 @@ end
 puts "🏠 Creating flats..."
 
 flats_data = [
-      {
-      title: "Scandinavian Style Loft in Stockholm",
-      description: "Minimalist, cozy, and bright loft with panoramic views of the Baltic Sea.",
-      location: "Skeppargatan 104, Östermalm, 114 59 Stockholm, Sweden",
-      price: 220,
-      user: toni,
-      photos: [
-        "https://images.unsplash.com/photo-1600585153880-507e285a13ec",
-        "https://images.unsplash.com/photo-1578898887777-d55f3c2d25f4"
-      ]
-    },
-    {
-      title: "Charming Colonial Home in Havana",
-      description: "Step into the 1950s in this colorful colonial gem with a leafy courtyard.",
-      location: "Calle Obispo, Habana Vieja, La Habana, Cuba",
-      price: 90,
-      user: sarah,
-      photos: [
-        "https://images.unsplash.com/photo-1580338473444-4ef5323d6503",
-        "https://images.unsplash.com/photo-1579202673506-ca3ce28943ef"
-      ]
-    },
-    {
-      title: "Eco Dome in the Desert of Joshua Tree",
-      description: "An off-grid, solar-powered dome home perfect for stargazing and solitude.",
-      location: "6770 Mt Lassen Ave, Joshua Tree, CA 92252, USA",
-      price: 150,
-      user: toni,
-      photos: [
-        "https://images.unsplash.com/photo-1600585154344-4f6d602d25a2",
-        "https://images.unsplash.com/photo-1606788075540-78d88b885d14"
-      ]
-    },
-    {
-      title: "Canal View Apartment in Amsterdam",
-      description: "Gaze at the canals from your living room in this classic Dutch townhouse.",
-      location: "Prinsengracht 263, 1016 GV Amsterdam, Netherlands",
-      price: 245,
-      user: sarah,
-      photos: [
-        "https://images.unsplash.com/photo-1538474705339-e87de81450e8",
-        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750"
-      ]
-    },
-    {
-      title: "Serene Retreat in the South Island",
-      description: "Wood-beamed chalet nestled by the lake in New Zealand's Southern Alps.",
-      location: "Queenstown Hill, Queenstown 9300, New Zealand",
-      price: 260,
-      user: toni,
-      photos: [
-        "https://images.unsplash.com/photo-1581067725367-dada1a3d2d35",
-        "https://images.unsplash.com/photo-1600585154344-4f6d602d25a3"
-      ]
-    },
-    {
+  {
+    title: "Charming Colonial Home in Havana",
+    description: "Step into the 1950s in this colorful colonial gem with a leafy courtyard.",
+    location: "Calle Obispo, Habana Vieja, La Habana, Cuba",
+    price: 90,
+    user: sarah,
+    photos: [
+      "https://images.pexels.com/photos/7058355/pexels-photo-7058355.jpeg",
+      "https://images.pexels.com/photos/280232/pexels-photo-280232.jpeg"
+    ]
+  },
+  {
+    title: "Eco Dome in the Desert of Joshua Tree",
+    description: "An off-grid, solar-powered dome home perfect for stargazing and solitude.",
+    location: "6770 Mt Lassen Ave, Joshua Tree, CA 92252, USA",
+    price: 150,
+    user: toni,
+    photos: [
+      "https://images.pexels.com/photos/347141/pexels-photo-347141.jpeg",
+      "https://images.pexels.com/photos/12969046/pexels-photo-12969046.jpeg"
+    ]
+  },
+  {
+    title: "Canal View Apartment in Amsterdam",
+    description: "Gaze at the canals from your living room in this classic Dutch townhouse.",
+    location: "Prinsengracht 263, 1016 GV Amsterdam, Netherlands",
+    price: 245,
+    user: sarah,
+    photos: [
+      "https://images.pexels.com/photos/271753/pexels-photo-271753.jpeg",
+      "https://www.pexels.com/photo/buildings-near-a-body-of-water-3817790.jpeg"
+    ]
+  },
+  {
+    title: "Serene Retreat in the South Island",
+    description: "Wood-beamed chalet nestled by the lake in New Zealand's Southern Alps.",
+    location: "Queenstown Hill, Queenstown 9300, New Zealand",
+    price: 260,
+    user: toni,
+    photos: [
+      "https://images.pexels.com/photos/32390203/pexels-photo-32390203.jpeg",
+      "https://images.pexels.com/photos/6466236/pexels-photo-6466236.jpeg"
+    ]
+  },
+  {
     title: "Penthouse Overlooking Central Park",
     description: "Luxury penthouse with sweeping views of Central Park and Manhattan skyline.",
     location: "15 Central Park West, New York, NY 10023, USA",
     price: 620,
     user: sarah,
     photos: [
-      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85",
-      "https://images.unsplash.com/photo-1572120360610-d971b9b78808"
+      "https://images.pexels.com/photos/6292341/pexels-photo-6292341.jpeg",
+      "https://images.pexels.com/photos/1599791/pexels-photo-1599791.jpeg"
     ]
   },
   {
@@ -96,19 +85,8 @@ flats_data = [
     price: 310,
     user: toni,
     photos: [
-      "https://images.unsplash.com/photo-1585560931462-e24c3fb674df",
-      "https://images.unsplash.com/photo-1568605114967-8130f3a36994"
-    ]
-  },
-  {
-    title: "Art Deco Studio in São Paulo",
-    description: "An artist's dream: vibrant colors, mid-century furniture and rooftop garden views.",
-    location: "Av. Paulista, 1578 - Bela Vista, São Paulo - SP, 01310-200, Brazil",
-    price: 105,
-    user: sarah,
-    photos: [
-      "https://images.unsplash.com/photo-1600566753742-8984ddc505a4",
-      "https://images.unsplash.com/photo-1584673965207-48ec3d4f2d1e"
+      "https://images.pexels.com/photos/1320686/pexels-photo-1320686.jpeg",
+      "https://images.pexels.com/photos/1714430/pexels-photo-1714430.jpeg"
     ]
   },
   {
@@ -118,8 +96,8 @@ flats_data = [
     price: 180,
     user: toni,
     photos: [
-      "https://images.unsplash.com/photo-1552634903-bdd3d17b457d",
-      "https://images.unsplash.com/photo-1526481280690-7492f06b788f"
+      "https://images.pexels.com/photos/16113006/pexels-photo-16113006.jpeg",
+      "https://images.pexels.com/photos/3554424/pexels-photo-3554424.jpeg"
     ]
   },
   {
@@ -129,8 +107,8 @@ flats_data = [
     price: 540,
     user: sarah,
     photos: [
-      "https://images.unsplash.com/photo-1600585154203-579f9f5c80b6",
-      "https://images.unsplash.com/photo-1619115806125-f2e149bfa536"
+      "https://images.pexels.com/photos/32406259/pexels-photo-32406259.jpeg",
+      "https://images.pexels.com/photos/18038065/pexels-photo-18038065.jpeg"
     ]
   },
   {
@@ -140,8 +118,8 @@ flats_data = [
     price: 230,
     user: sarah,
     photos: [
-      "https://thesingular.space/uploads/imgen/2240-1-6.jpg",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
+      "https://images.pexels.com/photos/18845596/pexels-photo-18845596.jpeg",
+      "https://images.pexels.com/photos/4050318/pexels-photo-4050318.jpeg"
     ]
   },
   {
@@ -151,8 +129,8 @@ flats_data = [
     price: 179,
     user: toni,
     photos: [
-      "https://images.unsplash.com/photo-1615571022219-eb45cf7faa9d",
-      "https://images.unsplash.com/photo-1528913775512-624d24b27b96"
+      "https://images.pexels.com/photos/18923572/pexels-photo-18923572.jpeg",
+      "https://images.pexels.com/photos/3225531/pexels-photo-3225531.jpeg"
     ]
   },
   {
@@ -162,8 +140,8 @@ flats_data = [
     price: 150,
     user: sarah,
     photos: [
-      "https://images.unsplash.com/photo-1581142327439-4f8b1f3ee9d2",
-      "https://images.unsplash.com/photo-1583337130417-3346a1fcdf8d"
+      "https://images.pexels.com/photos/18845596/pexels-photo-18845596.jpeg",
+      "https://images.pexels.com/photos/31124097/pexels-photo-31124097.jpeg"
     ]
   },
   {
@@ -173,8 +151,8 @@ flats_data = [
     price: 120,
     user: toni,
     photos: [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
-      "https://images.unsplash.com/photo-1606788075761-3d8a62c6e29e"
+      "https://www.pexels.com/photo/canadian-tiny-house-19343430.jpeg",
+      "https://images.pexels.com/photos/32380684/pexels-photo-32380684.jpeg"
     ]
   },
   {
@@ -184,12 +162,11 @@ flats_data = [
     price: 200,
     user: toni,
     photos: [
-      "https://images.unsplash.com/photo-1580631488242-3c20d4c54ef2",
-      "https://images.unsplash.com/photo-1533587851505-4f26dc1d1c97"
+      "https://images.pexels.com/photos/19795020/pexels-photo-19795020.jpeg",
+      "https://images.pexels.com/photos/32390203/pexels-photo-32390203.jpeg"
     ]
   }
 ]
-
 
 puts "👀 Seeding #{flats_data.size} flats..."
 
