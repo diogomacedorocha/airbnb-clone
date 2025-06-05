@@ -18,11 +18,17 @@
             <h5 class="card-title"><%= flat.title %></h5>
             <p class="card-text text-muted mb-2"><%= flat.location %></p>
             <p class="card-text fw-bold mb-3">£<%= flat.price_per_night %> per night</p>
-            <%= link_to 'View Flat', flat_path(flat), class: "btn btn-primary mt-auto" %>
-            <% if user_signed_in? && current_user.role.in?(%w[guest both]) %>
-              <%= link_to "Book Now", new_booking_path(flat_id: flat.id), class: "btn btn-sm btn-outline-primary" %>
+
+            <% if user_signed_in? && flat.user == current_user %>
+              <%= link_to 'Edit Property', edit_flat_path(flat), class: "btn btn-warning mt-auto" %>
+              <%= link_to 'Edit Availability', edit_flat_path(flat), class: "btn btn-outline-secondary btn-sm mt-2" %>
             <% else %>
-              <%= link_to "Sign in to Book", new_user_session_path, class: "btn btn-sm btn-outline-secondary" %>
+              <%= link_to 'View Flat', flat_path(flat), class: "btn btn-primary mt-auto" %>
+              <% if current_user&.role.in?(%w[guest both]) %>
+                <%= link_to "Book Now", new_booking_path(flat_id: flat.id), class: "btn btn-sm btn-outline-primary mt-2" %>
+              <% else %>
+                <%= link_to "Sign in to Book", new_user_session_path, class: "btn btn-sm btn-outline-secondary mt-2" %>
+              <% end %>
             <% end %>
           </div>
         </div>
