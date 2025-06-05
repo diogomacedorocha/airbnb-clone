@@ -23,7 +23,7 @@
              <% if user_signed_in? && current_user.role.in?(%w[guest both]) %>
              <%= link_to "Book it!", new_booking_path(flat_id: @flat.id), class: "form-button" %>
              <% else %>
-             <%= link_to "Sign in to book", new_user_session_path, class: "btn btn-outline-secondary" %>
+             <%= link_to "Sign in to book", new_user_session_path, class: "form-button" %>
              <% end %>
           </div>
           </div>
