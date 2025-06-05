@@ -23,9 +23,9 @@
             <strong>Status:</strong>
             <span class="badge
               <%= case booking.status
-                  when 'pending' then 'bg-warning text-dark'
-                  when 'accepted' then 'bg-success'
-                  when 'declined' then 'bg-danger'
+                  when 'pending' then 'status-indicator orange'
+                  when 'accepted' then 'status-indicator green'
+                  when 'declined' then 'status-indicator red'
                   else 'bg-secondary' end %>">
               <%= booking.status.capitalize %>
             </span>
