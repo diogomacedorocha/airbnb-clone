@@ -14,8 +14,8 @@ Flat.destroy_all
 User.destroy_all
 
 puts "Creating users..."
-sarah = User.create!(email: "sarah@sarah.com", password: "123456")
-toni = User.create!(email: "toni@toni.com", password: "123456")
+sarah = User.create!(email: "sarah@sarah.com", password: "123456", role: "guest")
+toni = User.create!(email: "toni@toni.com", password: "123456", role: "host")
 puts sarah.id
 
 puts "Creating restaurants..."
