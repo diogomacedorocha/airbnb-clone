@@ -8,7 +8,7 @@
   data-controller="map"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
   data-map-markers-value="<%= @markers.to_json %>"
-  style="height: 400px;"
+  style="height: 270px;" class="mb-4 shadow"
 ></div>
 
   <div class="row">
@@ -24,7 +24,7 @@
           <div class="card-body d-flex flex-column">
             <h5 class="card-title"><%= flat.title %></h5>
             <p class="card-text text-muted mb-2"><%= flat.location %></p>
-            <p class="card-text fw-bold mb-3">£<%= flat.price_per_night %> per night</p>
+            <p class="card-text fw-bold mb-3"><%= flat.price_per_night.to_i %>€ per night</p>
 
             <% if user_signed_in? && flat.user == current_user %>
               <%= link_to 'Edit Property', edit_flat_path(flat), class: "btn btn-warning mt-auto" %>
