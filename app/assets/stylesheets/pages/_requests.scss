@@ -19,9 +19,37 @@
   }
 }
 
+
 .decline {
-  background-color: $airbnb-light-orange;
+  background-color: $airbnb-orange;
   &:hover {
-    background-color: #a3350d;
+    background-color: #af3034;
   }
+}
+
+
+.status-indicator {
+  border: none;
+  color: white;
+  padding: 7px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  border-radius: 2px;
+  transition-duration: 0.4s;
+  width: 90px;
+  margin-right: 15px;    
+}
+
+.green {
+  background-color: $airbnb-green;
+}
+
+.red {
+  background-color: $airbnb-orange;
+}
+
+.orange {
+  background-color: $airbnb-light-orange;
 }
