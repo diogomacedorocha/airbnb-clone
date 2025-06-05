@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   # Flat routes
   resources :flats, only: [:index, :new, :create, :show, :edit]
 
+  # Custom route for host-side view of booking requests
+  get 'bookings/requests', to: 'bookings#requests', as: 'booking_requests'
+
+  get "properties", to: "flats#properties", as: :properties # This makes /properties available and properties_path usable in views
+
   # Custom user routes
   resources :users, only: [:show] do
     member do
