@@ -6,7 +6,7 @@
     <%= f.input :location %>
     <%= f.input :price_per_night %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.submit class: "btn btn-gradient" %>
-    <%= link_to "Back to flats", flats_path, class: "btn btn-gradient" %>
+    <%= f.submit class: "form-button" %>
+    <%= link_to "Back to flats", flats_path, class: "form-button second-button" %>
   <% end %>
 </div>
