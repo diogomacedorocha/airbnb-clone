@@ -1,12 +1,24 @@
+/* Sticky navbar wrapper */
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1030; /* Ensures it stays above other content */
+  background-color: #dadada;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow */
+}
+
+/* Navbar styling */
 .navbar-lewagon {
   justify-content: space-between;
   background: #dadada;
 }
 
+/* Prevents the navbar from stretching */
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
+/* Brand logo size */
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
