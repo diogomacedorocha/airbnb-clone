@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :bookings, only: [:index, :new, :create, :edit, :update]
 
   # Flat routes
-  resources :flats, only: [:index, :new, :create, :show, :edit]
+  resources :flats, only: [:index, :new, :create, :edit, :update]
 
   # Custom route for host-side view of booking requests
   get 'bookings/requests', to: 'bookings#requests', as: 'booking_requests'
@@ -18,7 +18,6 @@ Rails.application.routes.draw do
     get :dashboard
   end
 end
-
 
   # Homepage
   root to: "pages#home"
