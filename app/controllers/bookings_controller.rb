@@ -7,8 +7,12 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @flat = Flat.find(params[:flat_id] || params[:flat])
-    @booking = Booking.new
+    @flat = Flat.find(params[:flat_id])
+    @booking = Booking.new(
+      flat: @flat,
+      start_date: params[:start_date],
+      end_date: params[:end_date]
+    )
   end
 
   def create
