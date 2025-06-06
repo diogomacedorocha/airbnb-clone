@@ -1,7 +1,21 @@
 .form-container {
-  margin: 5%;
+  margin-bottom: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   padding: 20px;
+}
+
+.form-plus {
+  margin-top: 5%;
+}
+
+.form-title {
+  margin-top: 3%;
+  margin-left: 5%;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .form-button {

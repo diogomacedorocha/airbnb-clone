@@ -23,7 +23,7 @@
   <div class="row">
     <% @flats.each do |flat| %>
       <div class="col-md-3 mb-4">
-        <div class="card flat-card h-100 shadow-sm rounded">
+        <div class="card flat-card h-100 rounded">
           <% if flat.photos.attached? %>
             <%= image_tag flat.photos.first, class: "card-img-top img-hover-zoom" %>
           <% else %>
@@ -40,7 +40,7 @@
               <%= link_to 'Edit Availability', edit_flat_path(flat), class: "btn btn-airbnb-teal btn-sm mt-2" %>
             <% else %>
               <%= link_to 'View Flat', flat_path(flat), class: "btn btn-airbnb mt-auto" %>
-              <% if current_user&.role.in?(%w[guest both]) %>
+              <% if current_user&.role.in?(%w[guest both host]) %>
                 <%= link_to "Book Now", new_booking_path(flat_id: flat.id), class: "btn btn-airbnb btn-sm mt-2" %>
               <% else %>
                 <%= link_to "Sign in to Book", new_user_session_path, class: "btn btn-outline-secondary btn-sm mt-2" %>

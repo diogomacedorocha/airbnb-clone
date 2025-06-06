@@ -10,24 +10,28 @@
   background-color: #f4f4f4; // subtle grey for card
   border: none;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); // deeper shadow
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); // deeper shadow
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4); // strong shadow on hover
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); // strong shadow on hover
   }
 }
 
 .card-img-top {
-  height: 180px; // smaller image height
+  width: 90%;
+  height: 45%;
+  overflow: hidden;
+  margin: auto;
+  margin-top: 5%;
   object-fit: cover;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
+  border-radius: 6px;
 }
 
 .btn-airbnb {
-  background-color: #FF385C;
+  background-color: $airbnb-orange;
   color: white;
   border: none;
   padding: 0.35rem 0.75rem;
@@ -43,6 +47,6 @@
 }
 
 .btn-airbnb:hover {
-  background-color: #e03250;
+  background-color: #af3034;
   color: white;
 }

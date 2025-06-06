@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :bookings, only: [:index, :new, :create, :edit, :update]
 
   # Flat routes
-  resources :flats, only: [:index, :new, :create, :edit, :update]
+  resources :flats, only: [:index, :new, :create, :edit, :update, :show]
 
   # Custom route for host-side view of booking requests
   get 'bookings/requests', to: 'bookings#requests', as: 'booking_requests'
