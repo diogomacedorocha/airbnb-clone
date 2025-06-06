@@ -7,11 +7,17 @@
         <h5 class="card-title">
           <%= link_to booking.flat.title, flat_path(booking.flat), class: "text-decoration-none" %>
         </h5>
+
         <p class="card-text mb-1">
           <strong>Dates:</strong>
-          <%= booking.start_date.strftime("%b %d, %Y") %> &rarr;
-          <%= booking.end_date.strftime("%b %d, %Y") %>
+          <% if booking.start_date && booking.end_date %>
+            <%= booking.start_date.strftime("%b %d, %Y") %> &rarr;
+            <%= booking.end_date.strftime("%b %d, %Y") %>
+          <% else %>
+            <em>Not set</em>
+          <% end %>
         </p>
+
         <p class="card-text">
           <strong>Status:</strong>
           <span class="badge

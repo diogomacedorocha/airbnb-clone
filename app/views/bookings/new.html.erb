@@ -1,17 +1,51 @@
-<div class="form-container">
+<div data-controller="price">
   <h1>New Booking</h1>
 
+  <!-- Currency Selector -->
+  <div class="mb-3">
+    <label for="currency">Select your currency</label>
+    <select name="currency" id="currency"
+      data-price-target="currency"
+      data-action="change->price#update"
+      class="form-select">
+      <option value="EUR">Euro (€)</option>
+      <option value="USD">US Dollar ($)</option>
+      <option value="GBP">British Pound (£)</option>
+    </select>
+  </div>
+
   <%= simple_form_for @booking, url: bookings_path do |f| %>
-    <%= f.input :flat_id, as: :hidden, input_html: { value: @flat.id } %> <!-- ✅ flat_id now inside booking -->
+    <%= f.input :flat_id, as: :hidden, input_html: { value: @flat.id } %>
 
+    <!-- Start Date -->
     <div class="mb-3">
-      <%= f.input :start_date, as: :string, input_html: { data: { controller: "datepicker" } } %>
+      <%= f.input :start_date, as: :string,
+        input_html: {
+          data: {
+            controller: "datepicker",
+            price_target: "startDate",
+            action: "price#startDateTargetChanged"
+          }
+        } %>
     </div>
 
+    <!-- End Date -->
     <div class="mb-3">
-      <%= f.input :end_date, as: :string, input_html: { data: { controller: "datepicker" } } %>
+      <%= f.input :end_date, as: :string,
+        input_html: {
+          data: {
+            controller: "datepicker",
+            price_target: "endDate",
+            action: "price#endDateTargetChanged"
+          }
+        } %>
     </div>
 
-    <%= f.button :submit, "Request Booking", class: "form-button" %>
+    <!-- Price Info -->
+    <div id="price-info" class="mt-3" data-price-target="totalBox">
+      <p class="fst-italic">Total will appear after selecting valid start and end dates.</p>
+    </div>
+
+    <%= f.button :submit, "Request Booking", class: "btn btn-primary mt-3" %>
   <% end %>
 </div>
