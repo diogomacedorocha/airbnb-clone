@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to user_path(@user), notice: "Profile updated successfully."
     else
+      flash.now[:alert] = "Profile update failed. Please check the form and try again."
       render :edit, status: :unprocessable_entity
     end
   end

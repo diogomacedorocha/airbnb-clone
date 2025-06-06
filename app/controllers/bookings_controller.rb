@@ -19,6 +19,7 @@ class BookingsController < ApplicationController
       redirect_to bookings_path, notice: "Booking request sent!"
     else
       @flat = Flat.find(params[:flat_id] || params[:flat])
+      flash.now[:alert] = "Booking failed. Please check the form and try again."
       render :new, status: :unprocessable_entity
     end
   end
