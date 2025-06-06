@@ -43,10 +43,11 @@ class FlatsController < ApplicationController
 
   def create
     @flat = Flat.new(flat_params)
-    @flat.user = current_user # Assuming Devise is used
+    @flat.user = current_user
     if @flat.save
       redirect_to properties_path, notice: "Flat created successfully."
     else
+      flash.now[:alert] = "Flat creation failed. Please review the form."
       render :new, status: :unprocessable_entity
     end
   end
