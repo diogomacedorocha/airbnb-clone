@@ -17,7 +17,7 @@ class FlatsController < ApplicationController
         lat: flat.latitude,
         lng: flat.longitude,
         info_window_html: render_to_string(partial: "flats/info_window", locals: { flat: flat }, formats: [:html]),
-        marker_html: render_to_string(partial: "flats/marker", locals: { flat: flat }, formats: [:html])
+        marker_html: render_to_string(partial: "marker")
       }
     end
   end
@@ -32,7 +32,8 @@ class FlatsController < ApplicationController
     @flat = Flat.find(params[:id])
     @markers = [{
       lat: @flat.latitude,
-      lng: @flat.longitude
+      lng: @flat.longitude,
+      marker_html: render_to_string(partial: "marker", formats: [:html])
     }]
   end
 

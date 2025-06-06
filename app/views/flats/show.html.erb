@@ -19,7 +19,7 @@
           <p class="text-muted mb-4 fs-5"><%= @flat.description %></p>
           <hr>
           <div class="d-flex justify-content-between align-items-center mt-4">
-            <h3 class="mb-0 fw-semibold">💶 <%= @flat.price_per_night %>€ <span class="fs-6 text-muted">/ night</span></h3>
+            <h3 class="mb-0 fw-semibold"><%= @flat.price_per_night %>€ <span class="fs-6 text-muted">/ night</span></h3>
             <div>
               <% if user_signed_in? && current_user.role.in?(%w[guest both]) %>
                 <%= link_to "Book it!", new_booking_path(flat_id: @flat.id), class: "form-button" %>
@@ -34,7 +34,7 @@
       <div class="col-md-6 d-flex pt-5">
         <div data-controller="map"
           data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-          data-map-markers-value="<%= raw @markers.to_json %>"
+          data-map-markers-value='<%= raw @markers.to_json %>'
           style="height: 100%;" class="shadow mb-5 flex-grow-1">
         </div>
       </div>
