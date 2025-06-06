@@ -36,8 +36,8 @@
             <p class="card-text fw-bold mb-3"><%= flat.price_per_night.to_i %>€ per night</p>
 
             <% if user_signed_in? && flat.user == current_user %>
-              <%= link_to 'Edit Property', edit_flat_path(flat), class: "btn btn-airbnb-teal mt-auto" %>
-              <%= link_to 'Edit Availability', edit_flat_path(flat), class: "btn btn-airbnb-teal btn-sm mt-2" %>
+              <%= link_to 'View Flat', flat_path(flat), class: "btn btn-airbnb mt-auto" %>
+              <%= link_to 'Edit Property', edit_flat_path(flat), class: "btn btn-airbnb-teal btn-sm mt-2" %>
             <% else %>
               <%= link_to 'View Flat', flat_path(flat), class: "btn btn-airbnb mt-auto" %>
               <% if current_user&.role.in?(%w[guest both host]) %>
