@@ -53,6 +53,20 @@ class FlatsController < ApplicationController
     end
   end
 
+  def edit
+    @flat = current_user.flats.find(params[:id])
+  end
+
+  def update
+    @flat = current_user.flats.find(params[:id])
+    if @flat.update(flat_params)
+      redirect_to flat_path(@flat), notice: "Flat updated successfully."
+    else
+      flash.now[:alert] = "Update failed. Please fix the errors below."
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def flat_params
